@@ -1,4 +1,4 @@
-#Financial Data Dashboard Test Framework
+# Financial Data Dashboard Test Framework
 
 Application under test: Financial Data Dashboard (https://ui-automation-app.web.app/)
 
@@ -12,5 +12,6 @@ Tools used:
 - Maven
 - TestNG
 
-###Testing results:
-- The app consistently has data discrepancies between the tables for Stock Price and Market Cap columns for every 100th record
+## Testing results:
+- The app consistently has data discrepancies between the tables for **Stock Price** and **Market Cap** columns for every 100th record
+ ![Test result](https://github.com/Aanasta/financial_dashbboard_tests/blob/main/src/main/resources/Test%20result.png)
