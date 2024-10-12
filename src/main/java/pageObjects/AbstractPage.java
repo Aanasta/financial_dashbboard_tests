@@ -6,6 +6,8 @@ import uiUtils.WaiterUtil;
 
 public abstract class AbstractPage {
 
+    private static final String BASE_URL = "https://ui-automation-app.web.app/";
+
     protected WebDriver driver;
 
     public AbstractPage(WebDriver driver) {
@@ -17,7 +19,7 @@ public abstract class AbstractPage {
         return new WaiterUtil(this.driver);
     }
 
-    public void open(String url) {
-        driver.get(url);
+    public void openApp() {
+        driver.get(BASE_URL);
     }
 }

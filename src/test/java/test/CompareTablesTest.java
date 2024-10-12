@@ -13,15 +13,12 @@ import static helpers.DatasetComparisonHelper.areDatasetsDifferent;
 
 public class CompareTablesTest extends TestBase {
 
-    private DashboardHeader header;
-    private DataTable table;
-
     @Test
     public void compareDataTablesTest() {
         SoftAssert softly = new SoftAssert();
 
         DashboardHeader header = new DashboardHeader(driver);
-        header.open("https://ui-automation-app.web.app/");
+        header.openApp();
 
         Assert.assertTrue(header.isTableOneTabDisplayed(), "Table 1 tab is not displayed in the header");
         Assert.assertTrue(header.isTableTwoTabDisplayed(), "Table 2 tab is not displayed in the header");
