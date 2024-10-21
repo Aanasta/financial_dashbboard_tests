@@ -4,8 +4,8 @@ import models.Record;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pageObjects.DashboardHeader;
-import pageObjects.DataTable;
+import pageobjects.DashboardHeader;
+import pageobjects.DataTable;
 
 import java.util.List;
 

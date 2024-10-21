@@ -1,8 +1,8 @@
-package pageObjects;
+package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import uiUtils.WaiterUtil;
+import utils.ui.WaiterUtil;
 
 public abstract class AbstractPage {
 

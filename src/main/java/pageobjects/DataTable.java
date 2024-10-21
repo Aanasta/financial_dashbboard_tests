@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import models.Record;
 import org.apache.logging.log4j.LogManager;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import uiUtils.ScrollingUtil;
+import utils.ui.ScrollingUtil;
 
 import java.util.ArrayList;
 import java.util.List;
