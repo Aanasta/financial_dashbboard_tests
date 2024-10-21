@@ -45,17 +45,21 @@ public class DataTable extends AbstractPage {
         for (int i = 1; i <= count; i++) {
             String companyName = getCompanyNameByIndex(i);
             logger.info("{}. Collecting data for the record: {} ", i, companyName);
-            Record currentRecord = Record.builder()
-                    .companyName(companyName)
-                    .ticker(getTextValueByIndex(TICKER_BY_INDEX_XPATH, i, TICKER_FIELD, companyName).orElse(""))
-                    .cobDate(getTextValueByIndex(COB_DATE_BY_INDEX_XPATH, i, COB_DATE_FIELD, companyName).orElse(""))
-                    .stockPrice(getStockPriceByIndex(i, companyName))
-                    .marketCap(getMarketCapByIndex(i, companyName))
-                    .build();
+            Record currentRecord = buildRecordByIndex(i, companyName);
             records.add(currentRecord);
         }
         logger.info("Collected {} records from the data table", records.size());
         return records;
+    }
+
+    private Record buildRecordByIndex(int i, String companyName) {
+        return Record.builder()
+                .companyName(companyName)
+                .ticker(getTextValueByIndex(TICKER_BY_INDEX_XPATH, i, TICKER_FIELD, companyName).orElse(""))
+                .cobDate(getTextValueByIndex(COB_DATE_BY_INDEX_XPATH, i, COB_DATE_FIELD, companyName).orElse(""))
+                .stockPrice(getStockPriceByIndex(i, companyName).orElse(0.0))
+                .marketCap(getMarketCapByIndex(i, companyName).orElse(0))
+                .build();
     }
 
     private String getCompanyNameByIndex(int i) {
@@ -78,15 +82,13 @@ public class DataTable extends AbstractPage {
         }
     }
 
-    private double getStockPriceByIndex(int i, String companyName) {
-        return getNumericValueByIndex(STOCK_PRICE_BY_INDEX_XPATH, i, STOCK_PRICE_FIELD,  companyName)
-                .orElse(0.0);
+    private Optional<Double> getStockPriceByIndex(int i, String companyName) {
+        return getNumericValueByIndex(STOCK_PRICE_BY_INDEX_XPATH, i, STOCK_PRICE_FIELD,  companyName);
     }
 
-    private int getMarketCapByIndex(int i, String companyName) {
+    private Optional<Integer> getMarketCapByIndex(int i, String companyName) {
         return getNumericValueByIndex(MARKET_CAP_BY_INDEX_XPATH, i, MARKET_CAP_FIELD, companyName)
-                .map(Double::intValue)
-                .orElse(0);
+                .map(Double::intValue);
     }
 
     private Optional<Double> getNumericValueByIndex(String locator, int i, String fieldName, String companyName) {
