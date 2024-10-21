@@ -12,6 +12,6 @@ public class Record {
     private String companyName;
     private String ticker;
     private String cobDate;
-    private String stockPrice;
-    private String marketCap;
+    private double stockPrice;
+    private int marketCap;
 }

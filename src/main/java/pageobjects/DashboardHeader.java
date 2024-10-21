@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +35,4 @@ public class DashboardHeader extends AbstractPage {
         getWaiter().waitForElementToBePresent(button).click();
         return new DataTable(driver);
     }
-
-
 }
