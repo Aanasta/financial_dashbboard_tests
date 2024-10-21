@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static helpers.DataConstants.*;
+
 public class DataTable extends AbstractPage {
 
     private static final Logger logger = LogManager.getLogger(DataTable.class);
@@ -23,11 +25,6 @@ public class DataTable extends AbstractPage {
     private static final String COB_DATE_BY_INDEX_XPATH = "//tr[@class='row'][%s]/td[3]";
     private static final String STOCK_PRICE_BY_INDEX_XPATH = "//tr[@class='row'][%s]/td[4]";
     private static final String MARKET_CAP_BY_INDEX_XPATH = "//tr[@class='row'][%s]/td[5]";
-
-    private static final String TICKER_FIELD = "Ticker";
-    private static final String COB_DATE_FIELD = "COB Date";
-    private static final String STOCK_PRICE_FIELD = "Stock Price";
-    private static final String MARKET_CAP_FIELD = "Market Cap";
 
     @FindBy(xpath = "//tr[@class='row']")
     private List<WebElement> recordsRows;
